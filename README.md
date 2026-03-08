@@ -125,8 +125,8 @@ pyvis
 ### 1. Clone the repository
 
 ```
-git clone https://github.com/your-username/ai-codebase-explainer.git
-cd ai-codebase-explainer
+git clone https://github.com/Abas527/codebase_AI.git
+cd codebase_AI
 ```
 
 ### 2. Create a virtual environment
