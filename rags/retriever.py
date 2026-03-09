@@ -11,9 +11,8 @@ def retriever():
 
     retriev=vector_db.as_retriever(
         search_kwargs={
-            "k": 6,
-            "fetch_k": 20
-        },search_type="mmr"
+            "k": 6
+        },search_type="similarity"
     )
 
     return retriev

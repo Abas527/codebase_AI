@@ -82,15 +82,18 @@ with tab1:
         with st.chat_message("assistant", avatar="🤖"):
 
             response_placeholder = st.empty()
-            full_response = ""
 
             response = st.session_state.rag_chain.invoke(prompt)
 
-            # Fake streaming effect
-            for word in response.split():
-                full_response += word + " "
-                time.sleep(0.02)
+            if isinstance(response, dict):
+                response = response.get("answer", str(response))
+
+            full_response = ""
+
+            for line in response.split("\n"):
+                full_response += line + "\n"
                 response_placeholder.markdown(full_response)
+                time.sleep(0.02)
 
         st.session_state.messages.append(
             {"role": "assistant", "content": full_response}
